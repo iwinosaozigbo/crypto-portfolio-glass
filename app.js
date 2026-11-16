@@ -71,6 +71,62 @@ document.addEventListener('DOMContentLoaded', () => {
   const allocationSection = document.getElementById('allocation-card-section');
   const focusAllocationBtn = document.getElementById('focus-allocation-btn');
 
+  // Sign Up / Auth Mode Elements
+  const authTabs = document.querySelectorAll('.auth-tab');
+  const signupFields = document.getElementById('signup-fields');
+  const signupFullnameInput = document.getElementById('signup-fullname');
+  const signupBalanceInput = document.getElementById('signup-balance');
+  const loginPreviewTitle = document.getElementById('login-preview-title');
+  const loginSubmitText = document.getElementById('login-submit-text');
+  const greetingNameEl = document.getElementById('greeting-name');
+
+  const ACCOUNTS_STORAGE_KEY = 'private_banking_accounts_v1';
+  let authMode = 'signin';
+
+  function loadStoredAccounts() {
+    try {
+      const raw = localStorage.getItem(ACCOUNTS_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (_) {
+      return {};
+    }
+  }
+
+  function saveStoredAccounts(accounts) {
+    try {
+      localStorage.setItem(ACCOUNTS_STORAGE_KEY, JSON.stringify(accounts));
+    } catch (_) {}
+  }
+
+  function setAuthMode(mode) {
+    authMode = mode;
+    authTabs.forEach((tab) => {
+      const isSelected = tab.getAttribute('data-auth') === mode;
+      tab.classList.toggle('active', isSelected);
+      tab.setAttribute('aria-selected', String(isSelected));
+    });
+    if (signupFields) signupFields.hidden = mode !== 'signup';
+    if (loginPreviewTitle) {
+      loginPreviewTitle.textContent =
+        mode === 'signup' ? 'Open Your Account' : 'Sign in to Banking';
+    }
+    if (loginSubmitText) {
+      loginSubmitText.textContent =
+        mode === 'signup' ? 'Create Account & Sign In' : 'Sign In to Account';
+    }
+    if (usernameInput) {
+      usernameInput.placeholder = mode === 'signup' ? 'Choose a username' : 'IWINOSA';
+    }
+    if (loginError) loginError.hidden = true;
+  }
+
+  authTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const mode = tab.getAttribute('data-auth') || 'signin';
+      setAuthMode(mode);
+    });
+  });
+
   // Update 6-dot PIN progress indicator
   function syncPinDots() {
     const len = (pinInput?.value || '').length;
@@ -123,7 +179,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Validate Login (Username: IWINOSA, PIN: 123456)
+  if (signupFullnameInput) {
+    signupFullnameInput.addEventListener('input', () => {
+      if (loginError && !loginError.hidden) loginError.hidden = true;
+    });
+  }
+
+  function showAuthError(msg) {
+    if (!loginError) return;
+    loginError.innerHTML = msg;
+    loginError.hidden = false;
+    loginForm.classList.remove('shake');
+    void loginForm.offsetWidth;
+    loginForm.classList.add('shake');
+  }
+
+  function enterDashboard(displayName, startingCents) {
+    if (greetingNameEl) {
+      greetingNameEl.textContent = `Hi, ${displayName}!`;
+    }
+    if (typeof startingCents === 'number' && !Number.isNaN(startingCents)) {
+      currentBalanceCents = startingCents;
+      if (balanceEl) balanceEl.textContent = formatAccountBalance(currentBalanceCents);
+    }
+    loginError.hidden = true;
+    loginView.hidden = true;
+    dashboardView.hidden = false;
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  // Validate Login or Sign Up
   if (loginForm) {
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -131,17 +216,54 @@ document.addEventListener('DOMContentLoaded', () => {
       const enteredUser = (usernameInput?.value || '').trim().toUpperCase();
       const enteredPin = (pinInput?.value || '').trim();
 
-      if (enteredUser === VALID_USERNAME && enteredPin === VALID_PIN) {
-        loginError.hidden = true;
-        loginView.hidden = true;
-        dashboardView.hidden = false;
-        window.scrollTo({ top: 0, behavior: 'instant' });
-      } else {
-        loginError.hidden = false;
-        loginForm.classList.remove('shake');
-        void loginForm.offsetWidth;
-        loginForm.classList.add('shake');
+      if (authMode === 'signup') {
+        const fullName = (signupFullnameInput?.value || '').trim();
+        if (!fullName) {
+          showAuthError('Please enter your name so we can personalize your account.');
+          return;
+        }
+        if (!enteredUser) {
+          showAuthError('Please choose a username.');
+          return;
+        }
+        if (enteredPin.length !== 6) {
+          showAuthError('Please enter a 6-digit login PIN.');
+          return;
+        }
+
+        const rawBal = parseFloat(signupBalanceInput?.value || '');
+        const startingCents =
+          !Number.isNaN(rawBal) && rawBal >= 0
+            ? Math.round(rawBal * 100)
+            : DEFAULT_BALANCE_CENTS;
+
+        const accounts = loadStoredAccounts();
+        accounts[enteredUser] = {
+          fullName,
+          pin: enteredPin,
+          balanceCents: startingCents,
+        };
+        saveStoredAccounts(accounts);
+        enterDashboard(fullName, startingCents);
+        return;
       }
+
+      // Sign In Mode: check hardcoded IWINOSA / 123456 OR stored signed-up accounts
+      if (enteredUser === VALID_USERNAME && enteredPin === VALID_PIN) {
+        enterDashboard('Iwinosa', DEFAULT_BALANCE_CENTS);
+        return;
+      }
+
+      const accounts = loadStoredAccounts();
+      const matched = accounts[enteredUser];
+      if (matched && matched.pin === enteredPin) {
+        enterDashboard(matched.fullName, matched.balanceCents);
+        return;
+      }
+
+      showAuthError(
+        'Invalid credentials. Enter username <strong>IWINOSA</strong> and PIN <strong>123456</strong>, or switch to <strong>Sign Up</strong>.'
+      );
     });
   }
 
