@@ -1,0 +1,1179 @@
+/* ==========================================================================
+   PIXEL-PERFECT REPLICA: CRYPTO PORTFOLIO & 3D CHROME GLASS ACCOUNT CARD
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --lime-canvas: #B2F80E;
+  --lime-btn: #B1F808;
+  --lime-accent: #CFFD52;
+  --phone-surface: #181818;
+  --card-black: #000000;
+  --text-white: #FFFFFF;
+  --text-muted: #7C7C7C;
+  --pill-gray: #767676;
+  --olive-green: #627042;
+  --positive-green: #9EC765;
+  --chrome-canvas: #ECECEC;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--lime-canvas);
+  color: var(--text-white);
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* ==========================================================================
+   FLOATING VIEW SWITCHER
+   ========================================================================== */
+.floating-switcher {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(16, 16, 16, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.switch-btn {
+  padding: 6px 12px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.switch-btn:hover {
+  color: #FFFFFF;
+}
+
+.switch-btn.active {
+  background: var(--lime-btn);
+  color: #0A0A0A;
+  font-weight: 600;
+}
+
+/* View Mode Visibility States */
+body[data-mode="crypto"] #section-glass {
+  display: none;
+}
+body[data-mode="glass"] #section-crypto {
+  display: none;
+}
+
+/* ==========================================================================
+   SECTION 1: NEON LIME DUAL-IPHONE CRYPTO PORTFOLIO (IMAGE 1)
+   ========================================================================== */
+.showcase-crypto {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--lime-canvas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+}
+
+.phones-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 96px;
+  max-width: 100%;
+}
+
+/* iPhone Hardware Bezel & Frame (Exact 311x674 proportion from reference) */
+.iphone-frame {
+  width: 311px;
+  height: 674px;
+  border-radius: 46px;
+  background: linear-gradient(145deg, #2d2d2d 0%, #171717 50%, #252525 100%);
+  padding: 3px;
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.22),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+
+.iphone-frame.pulse-highlight {
+  transform: translateY(-4px) scale(1.012);
+  box-shadow:
+    0 30px 64px rgba(0, 0, 0, 0.36),
+    0 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+.iphone-bezel {
+  width: 100%;
+  height: 100%;
+  border-radius: 43px;
+  background: #080808;
+  padding: 7px;
+}
+
+.iphone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+  background-color: var(--phone-surface);
+  overflow: hidden;
+  padding: 12px 14px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* iOS Status Bar */
+.ios-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 8px 10px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.status-time {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* User Profile Greeting Header (Left Phone) */
+.user-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding: 0 2px;
+}
+
+.user-greeting h1 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.user-greeting p {
+  font-size: 10.5px;
+  font-weight: 400;
+  color: #787878;
+  margin-top: 2px;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.circle-icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #0D0D0D;
+  color: #E5E5E5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.circle-icon-btn:hover {
+  background-color: #242424;
+  transform: scale(1.05);
+}
+
+.avatar-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #2A2A2A;
+  flex-shrink: 0;
+}
+
+.user-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Screen Main Title */
+.screen-title {
+  font-size: 24px;
+  font-weight: 300;
+  color: #F2F2F2;
+  letter-spacing: -0.025em;
+  margin: 18px 2px 14px;
+}
+
+/* Shared Dark Rounded Card */
+.dark-card {
+  background-color: var(--card-black);
+  border-radius: 24px;
+  padding: 16px;
+  position: relative;
+}
+
+/* Card 1: Total Income & Bar Chart */
+.income-card {
+  height: 252px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.income-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.card-subtitle {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: #9A9A9A;
+}
+
+.income-amount {
+  font-size: 32px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-top: 2px;
+}
+
+.pill-badge-gray {
+  background-color: var(--pill-gray);
+  color: #0D0D0D;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-top: 2px;
+  transition: opacity 0.15s ease;
+}
+
+.pill-badge-gray:hover {
+  opacity: 0.88;
+}
+
+/* Bar Chart Section */
+.income-chart-area {
+  position: relative;
+  height: 148px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Floating +73% Callout & Dotted Connector */
+.chart-callout {
+  position: absolute;
+  top: 16px;
+  left: 22px;
+  display: flex;
+  align-items: flex-start;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.callout-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.callout-percent {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--positive-green);
+  line-height: 1.1;
+}
+
+.callout-sub {
+  font-size: 8.5px;
+  color: #6B6B6B;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.callout-dotted-line {
+  width: 42px;
+  border-top: 1.5px dotted rgba(255, 255, 255, 0.48);
+  margin-top: 9px;
+  margin-left: -16px;
+}
+
+/* 4 Vertical Bars Grid */
+.bars-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  align-items: end;
+  height: 100%;
+  width: 100%;
+}
+
+.chart-bar {
+  width: 100%;
+  border-radius: 13px;
+  padding: 6px 4px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.chart-bar:hover {
+  filter: brightness(1.08);
+}
+
+/* Bar 1: Short Dark Hatched */
+.bar-1 {
+  height: 74px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #1A1A1A,
+    #1A1A1A 5px,
+    #222222 5px,
+    #222222 10px
+  );
+}
+
+/* Bar 2: Shorter Medium-Light Gray Solid */
+.bar-2 {
+  height: 55px;
+  background: #A0A0A0;
+}
+
+/* Bar 3: Tallest Bright White Hatched */
+.bar-3 {
+  height: 136px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #F5F5F5,
+    #F5F5F5 6px,
+    #E6E6E6 6px,
+    #E6E6E6 12px
+  );
+}
+
+/* Small black dot on left edge of Bar 3 where dotted line connects */
+.bar-connector-dot {
+  position: absolute;
+  top: 13px;
+  left: -2.5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #000000;
+}
+
+/* Bar 4: Medium-Tall Dark Gray Hatched */
+.bar-4 {
+  height: 95px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #464646,
+    #464646 6px,
+    #505050 6px,
+    #505050 12px
+  );
+}
+
+/* Inner Pills inside Bars */
+.bar-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pill-light {
+  background-color: #F2F2F2;
+  color: #121212;
+}
+
+.pill-dark {
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  padding: 4.5px 8px;
+}
+
+.pill-arrow {
+  font-size: 8.5px;
+  line-height: 1;
+}
+
+/* Card 2: Crypto Holdings Preview (Bottom of Left Phone) */
+.holdings-preview-card {
+  margin-top: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 58px;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.lime-arrow-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--lime-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.lime-arrow-btn:hover {
+  transform: scale(1.08);
+  background-color: var(--lime-btn);
+}
+
+.holdings-legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #EAEAEA;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-bitcoin {
+  background-color: #242424;
+}
+
+.dot-ethereum {
+  background-color: #5C5C5C;
+}
+
+.dot-altcoins {
+  background-color: #DFDFDF;
+}
+
+/* Arc Gauge SVG Container */
+.arc-gauge-wrap {
+  margin-top: auto;
+  margin-bottom: -14px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.arc-gauge-svg {
+  width: 215px;
+  height: 115px;
+  overflow: visible;
+}
+
+/* Floating Bottom Navigation Bar (Shared by Both Phones) */
+.bottom-glass-nav {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 22px;
+  height: 54px;
+  border-radius: 999px;
+  background: rgba(34, 34, 34, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.nav-pill-discover {
+  height: 46px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background-color: var(--lime-btn);
+  color: #0A0A0A;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: transform 0.15s ease;
+}
+
+.nav-pill-discover:hover {
+  transform: scale(1.02);
+}
+
+.nav-circle-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: rgba(52, 52, 52, 0.85);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.nav-circle-btn:hover {
+  background-color: rgba(75, 75, 75, 0.95);
+}
+
+/* iOS Home Indicator Bar */
+.ios-home-indicator {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3.5px;
+  border-radius: 99px;
+  background-color: #FFFFFF;
+  z-index: 11;
+}
+
+/* ==========================================================================
+   RIGHT IPHONE: CRYPTO HOLDINGS DETAIL SCREEN
+   ========================================================================== */
+.subscreen-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 14px;
+  padding: 0 2px;
+}
+
+.back-chevron-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #FFFFFF;
+}
+
+.subscreen-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+/* Card 1: Asset Allocation */
+.allocation-card {
+  padding: 16px 15px 14px;
+}
+
+.allocation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.allocation-header .card-title {
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.allocation-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.outlined-pill-btn {
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid #4A4A4A;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 400;
+  color: #EDEDED;
+}
+
+.outlined-circle-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #4A4A4A;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #EDEDED;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.outlined-circle-btn:hover {
+  border-color: #888888;
+  transform: scale(1.05);
+}
+
+/* Total $17.3K & 2x2 Mini Legend */
+.allocation-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.allocation-total-val {
+  font-size: 27px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.allocation-total-lbl {
+  font-size: 10.5px;
+  color: #7A7A7A;
+  margin-top: 2px;
+}
+
+.allocation-mini-legend {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 5px 12px;
+}
+
+.mini-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8px;
+  color: #8E8E8E;
+  white-space: nowrap;
+}
+
+.mini-dot {
+  width: 6.5px;
+  height: 6.5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-olive {
+  background-color: var(--olive-green);
+}
+.dot-midgray {
+  background-color: #6B6B6B;
+}
+.dot-white {
+  background-color: #D8D8D8;
+}
+.dot-darkgray {
+  background-color: #2A2A2A;
+}
+
+/* 3x7 Bubble Heatmap Matrix */
+.allocation-matrix {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.matrix-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.matrix-row-label {
+  font-size: 10px;
+  color: #D4D4D4;
+  width: 48px;
+  flex-shrink: 0;
+}
+
+.matrix-bubbles {
+  display: grid;
+  grid-template-columns: repeat(7, 24px);
+  gap: 4.5px;
+}
+
+.bubble {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bubble:hover {
+  transform: scale(1.14);
+  box-shadow: 0 0 0 1.5px var(--lime-btn);
+}
+
+/* Exact 5 Bubble Fill Styles from Reference Image */
+.b-dark-hatch {
+  background: repeating-linear-gradient(
+    -45deg,
+    #252525,
+    #252525 2.5px,
+    #313131 2.5px,
+    #313131 5px
+  );
+}
+
+.b-mid-hatch {
+  background: repeating-linear-gradient(
+    -45deg,
+    #525252,
+    #525252 2.5px,
+    #666666 2.5px,
+    #666666 5px
+  );
+}
+
+.b-light-hatch {
+  background: repeating-linear-gradient(
+    -45deg,
+    #C6C6C6,
+    #C6C6C6 2.5px,
+    #DCDCDC 2.5px,
+    #DCDCDC 5px
+  );
+}
+
+.b-olive-solid {
+  background-color: #5E6E3E;
+}
+
+.b-light-solid {
+  background-color: #D2D2D2;
+}
+
+.matrix-days-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3px;
+}
+
+.matrix-row-spacer {
+  width: 48px;
+  flex-shrink: 0;
+}
+
+.matrix-days {
+  display: grid;
+  grid-template-columns: repeat(7, 24px);
+  gap: 4.5px;
+  text-align: center;
+  font-size: 9px;
+  color: #7D7D7D;
+}
+
+/* Card 2: Today's Earnings */
+.earnings-card {
+  margin-top: 10px;
+  padding: 15px 16px;
+}
+
+.earnings-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.earnings-big-num {
+  font-size: 31px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.earnings-change {
+  display: flex;
+  flex-direction: column;
+}
+
+.earnings-pct {
+  font-size: 13px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.earnings-pct-lbl {
+  font-size: 7.5px;
+  color: #7C7C7C;
+  margin-top: 1px;
+}
+
+/* Card 3: Join Our Crypto Mastery Class */
+.mastery-card {
+  margin-top: 10px;
+  flex: 1;
+  padding: 15px 16px 56px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.mastery-topo-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mastery-header {
+  position: relative;
+  z-index: 1;
+  align-items: flex-start;
+}
+
+.mastery-title {
+  line-height: 1.25;
+}
+
+.mastery-discount-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.discount-pill {
+  background-color: #767676;
+  color: #0D0D0D;
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 2.5px 7px;
+  border-radius: 999px;
+}
+
+.discount-text {
+  font-size: 10.5px;
+  color: #CCCCCC;
+}
+
+/* ==========================================================================
+   SECTION 2: 3D LIQUID CHROME & FROSTED GLASS ACCOUNT VALUE CARD (IMAGE 2)
+   ========================================================================== */
+.showcase-glass {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--chrome-canvas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.chrome-card-stage {
+  position: relative;
+  width: 586px;
+  max-width: 100%;
+  aspect-ratio: 586 / 577;
+  user-select: none;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+.chrome-plate-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Live Interactive DOM Overlay Mapped to Exact 586x577 Reference Coordinates */
+.glass-card-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Top Inner White Card Text Content (x=47..497, y=90..342 in 586x577) */
+.glass-inner-white-content {
+  position: absolute;
+  left: 8.02%;
+  top: 15.60%;
+  width: 76.79%;
+  height: 43.67%;
+  padding: 7.4% 8.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.account-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1px;
+}
+
+.account-label,
+.account-id {
+  font-size: clamp(16px, 3.85vw, 22.5px);
+  font-weight: 400;
+  color: #141414;
+  letter-spacing: -0.015em;
+}
+
+.account-balance {
+  font-size: clamp(32px, 9.2vw, 54px);
+  font-weight: 400;
+  color: #141414;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-top: 6px;
+}
+
+.account-status {
+  font-size: clamp(16px, 3.85vw, 22.5px);
+  font-weight: 400;
+  color: #295238;
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
+}
+
+/* Bottom Frosted Glass Action Buttons (centers at x=149, 272, 395; y=395 in 586x577) */
+.glass-actions-row {
+  position: absolute;
+  left: 8.02%;
+  top: 64.47%;
+  width: 76.79%;
+  height: 18.5%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 7.2%;
+  align-items: start;
+  justify-items: center;
+}
+
+.glass-action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass-action-item:hover {
+  transform: translateY(-3px);
+}
+
+.glass-action-item:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.glass-action-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dollar-glyph {
+  font-size: 23px;
+  font-weight: 500;
+  color: #4D4D4D;
+  line-height: 1;
+}
+
+.glass-action-label {
+  font-size: clamp(14px, 3.3vw, 19.5px);
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.16);
+  white-space: nowrap;
+}
+
+/* Interactive Modal Inside Glass Card */
+.glass-modal {
+  position: absolute;
+  left: 8.02%;
+  top: 15.60%;
+  width: 76.79%;
+  height: 69.15%;
+  background: rgba(250, 250, 250, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 36px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
+}
+
+.glass-modal[hidden] {
+  display: none !important;
+}
+
+.glass-modal-box {
+  width: 100%;
+  color: #141414;
+}
+
+.glass-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.glass-modal-header h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.glass-modal-close {
+  font-size: 26px;
+  line-height: 1;
+  color: #666666;
+}
+
+.glass-modal-desc {
+  font-size: 13px;
+  color: #555555;
+  margin-top: 6px;
+}
+
+.glass-modal-input-wrap {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1.5px solid #DCDCDC;
+  border-radius: 16px;
+  padding: 10px 16px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.glass-modal-input-wrap input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  font-family: inherit;
+  color: #141414;
+}
+
+.glass-modal-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.glass-btn-secondary {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #EAEAEA;
+  color: #222222;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.glass-btn-primary {
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: #141414;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Responsive Scaling */
+@media (max-width: 780px) {
+  .phones-stage {
+    flex-direction: column;
+    gap: 36px;
+  }
+}
