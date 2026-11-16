@@ -7,6 +7,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const VALID_USERNAME = 'IWINOSA';
   const VALID_PIN = '123456';
 
+  // Dynamically format and display today's live date (e.g. "16th November, 2026")
+  const dateDisplay = document.getElementById('current-date-display');
+  if (dateDisplay) {
+    const now = new Date();
+    const day = now.getDate();
+    const suffix =
+      day % 10 === 1 && day !== 11
+        ? 'st'
+        : day % 10 === 2 && day !== 12
+        ? 'nd'
+        : day % 10 === 3 && day !== 13
+        ? 'rd'
+        : 'th';
+    const month = now.toLocaleString('en-US', { month: 'long' });
+    const year = now.getFullYear();
+    dateDisplay.textContent = `${day}${suffix} ${month}, ${year}`;
+  }
+
   // Force Fullscreen on load and on first user interaction
   function enterFullscreen() {
     const el = document.documentElement;
