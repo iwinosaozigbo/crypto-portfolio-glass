@@ -1,24 +1,127 @@
 // ==========================================================================
-// INTERACTIVE CONTROLLER: CRYPTO PORTFOLIO & 3D CHROME GLASS ACCOUNT CARD
+// UNIFIED PRIVATE BANKING CONTROLLER
+// Hardcoded Credentials: Username = IWINOSA | Login PIN = 123456
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Floating View Mode Switcher
-  const switchBtns = document.querySelectorAll('.switch-btn');
-  switchBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      switchBtns.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      const view = btn.getAttribute('data-view');
-      if (view === 'all') {
-        document.body.removeAttribute('data-mode');
-      } else {
-        document.body.setAttribute('data-mode', view);
+  const VALID_USERNAME = 'IWINOSA';
+  const VALID_PIN = '123456';
+
+  const loginView = document.getElementById('login-view');
+  const dashboardView = document.getElementById('dashboard-view');
+  const loginForm = document.getElementById('login-form');
+  const usernameInput = document.getElementById('login-username');
+  const pinInput = document.getElementById('login-pin');
+  const loginError = document.getElementById('login-error');
+  const pinDots = document.querySelectorAll('#pin-dots span');
+  const togglePinVisBtn = document.getElementById('toggle-pin-vis');
+  const logoutBtn = document.getElementById('logout-btn');
+  const navProfileBtn = document.getElementById('nav-profile-btn');
+  const navTopBtn = document.getElementById('nav-top-btn');
+  const navStatsBtn = document.getElementById('nav-stats-btn');
+  const scrollArea = document.getElementById('dashboard-scroll-area');
+  const allocationSection = document.getElementById('allocation-card-section');
+  const focusAllocationBtn = document.getElementById('focus-allocation-btn');
+
+  // Update 6-dot PIN progress indicator
+  function syncPinDots() {
+    const len = (pinInput?.value || '').length;
+    pinDots.forEach((dot, idx) => {
+      dot.classList.toggle('filled', idx < len);
+    });
+    if (loginError && !loginError.hidden) {
+      loginError.hidden = true;
+    }
+  }
+
+  if (pinInput) {
+    pinInput.addEventListener('input', () => {
+      pinInput.value = pinInput.value.replace(/\D/g, '').slice(0, 6);
+      syncPinDots();
+    });
+  }
+
+  if (usernameInput) {
+    usernameInput.addEventListener('input', () => {
+      if (loginError && !loginError.hidden) {
+        loginError.hidden = true;
       }
+    });
+  }
+
+  // Show / Hide PIN toggle
+  if (togglePinVisBtn && pinInput) {
+    togglePinVisBtn.addEventListener('click', () => {
+      const isHidden = pinInput.type === 'password';
+      pinInput.type = isHidden ? 'text' : 'password';
+      togglePinVisBtn.textContent = isHidden ? 'Hide' : 'Show';
+    });
+  }
+
+  // Tactile PIN Keypad buttons
+  document.querySelectorAll('.key-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!pinInput) return;
+      const key = btn.getAttribute('data-key');
+      if (key === 'clear') {
+        pinInput.value = '';
+      } else if (key === 'back') {
+        pinInput.value = pinInput.value.slice(0, -1);
+      } else if (key && pinInput.value.length < 6) {
+        pinInput.value += key;
+      }
+      syncPinDots();
     });
   });
 
-  // 2. Left Phone: Interactive Bar Chart & Period Toggle
+  // Validate Login (Username: IWINOSA, PIN: 123456)
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const enteredUser = (usernameInput?.value || '').trim().toUpperCase();
+      const enteredPin = (pinInput?.value || '').trim();
+
+      if (enteredUser === VALID_USERNAME && enteredPin === VALID_PIN) {
+        loginError.hidden = true;
+        loginView.hidden = true;
+        dashboardView.hidden = false;
+        if (scrollArea) scrollArea.scrollTop = 0;
+      } else {
+        loginError.hidden = false;
+        loginForm.classList.remove('shake');
+        void loginForm.offsetWidth;
+        loginForm.classList.add('shake');
+      }
+    });
+  }
+
+  // Lock / Sign Out back to Login View
+  function lockAccount() {
+    dashboardView.hidden = true;
+    loginView.hidden = false;
+    if (pinInput) pinInput.value = '';
+    syncPinDots();
+  }
+
+  if (logoutBtn) logoutBtn.addEventListener('click', lockAccount);
+  if (navProfileBtn) navProfileBtn.addEventListener('click', lockAccount);
+
+  // Smooth scrolling inside unified dashboard
+  if (navTopBtn && scrollArea) {
+    navTopBtn.addEventListener('click', () => {
+      scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  function scrollToAllocation() {
+    if (allocationSection) {
+      allocationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+  if (navStatsBtn) navStatsBtn.addEventListener('click', scrollToAllocation);
+  if (focusAllocationBtn) focusAllocationBtn.addEventListener('click', scrollToAllocation);
+
+  // Interactive Bar Chart & Period Toggle
   const incomeDisplay = document.getElementById('total-income-display');
   const calloutPercent = document.getElementById('callout-percent');
   const bars = document.querySelectorAll('.chart-bar');
@@ -49,18 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Left Phone -> Right Phone Focus Highlight
-  const focusHoldingsBtn = document.getElementById('focus-holdings-btn');
-  const rightPhone = document.getElementById('phone-holdings');
-  if (focusHoldingsBtn && rightPhone) {
-    focusHoldingsBtn.addEventListener('click', () => {
-      rightPhone.classList.add('pulse-highlight');
-      rightPhone.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      setTimeout(() => rightPhone.classList.remove('pulse-highlight'), 900);
-    });
-  }
-
-  // 4. Right Phone: Cadence Toggle & Matrix Bubble Cycle
+  // Cadence Toggle & Matrix Bubble Cycle
   const cadenceBtn = document.getElementById('cadence-btn');
   const cadenceLabel = document.getElementById('cadence-label');
   const allocationTotalVal = document.getElementById('allocation-total-val');
@@ -97,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Section 2: 3D Chrome & Frosted Glass Account Value Card Actions
+  // 3D Chrome & Frosted Glass Account Value Card Actions
   const DEFAULT_BALANCE_CENTS = 8734800; // $87.348,00
   let currentBalanceCents = DEFAULT_BALANCE_CENTS;
   let activeAction = 'add';
@@ -111,7 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const resetBtn = document.getElementById('glass-reset-btn');
   const confirmBtn = document.getElementById('glass-confirm-btn');
 
-  // Format cents into exact European/International "$87.348,00" notation
   function formatAccountBalance(cents) {
     const whole = Math.floor(Math.abs(cents) / 100);
     const dec = String(Math.abs(cents) % 100).padStart(2, '0');
@@ -130,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalDesc.textContent = 'Deposit funds directly into Account ID: 8674';
       } else {
         modalTitle.textContent = 'Transfer Funds';
-        modalDesc.textContent = 'Transfer balance to an external wallet or account';
+        modalDesc.textContent = 'Transfer balance to Checking or Savings';
       }
       modalEl.hidden = false;
     });
