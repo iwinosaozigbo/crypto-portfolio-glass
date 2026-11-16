@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const startingCents =
           !Number.isNaN(rawBal) && rawBal >= 0
             ? Math.round(rawBal * 100)
-            : DEFAULT_BALANCE_CENTS;
+            : 0;
 
         const accounts = loadStoredAccounts();
         accounts[enteredUser] = {
