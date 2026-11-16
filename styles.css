@@ -1,5 +1,5 @@
 /* ==========================================================================
-   UNIFIED PRIVATE BANKING SUITE:
+   NATIVE MOBILE PRIVATE BANKING SUITE (NO PHONE BEZEL / NO LIME WALLPAPER)
    LOGIN GATE -> 3D CHROME GLASS ACCOUNT CARD -> REGULAR BANKING PORTFOLIO
    ========================================================================== */
 
@@ -10,10 +10,9 @@
 }
 
 :root {
-  --lime-canvas: #B2F80E;
   --lime-btn: #B1F808;
   --lime-accent: #CFFD52;
-  --phone-surface: #181818;
+  --app-surface: #181818;
   --card-black: #000000;
   --text-white: #FFFFFF;
   --text-muted: #7C7C7C;
@@ -26,10 +25,11 @@
 html, body {
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--lime-canvas);
+  background-color: var(--app-surface);
   color: var(--text-white);
   overflow-x: hidden;
 }
@@ -47,74 +47,18 @@ button {
 }
 
 /* ==========================================================================
-   MAIN STAGE & UNIFIED PHONE SHELL
+   NATIVE MOBILE APP SHELL (FULL-BLEED ON MOBILE, CENTERED COLUMN ON DESKTOP)
    ========================================================================== */
-.banking-stage {
+.app-shell {
   width: 100%;
+  max-width: 430px;
   min-height: 100vh;
-  background-color: var(--lime-canvas);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 16px;
-}
-
-.unified-phone-frame {
-  width: 382px;
-  height: 812px;
-  max-height: calc(100vh - 32px);
-  min-height: 690px;
-  border-radius: 50px;
-  background: linear-gradient(145deg, #2d2d2d 0%, #171717 50%, #252525 100%);
-  padding: 3.5px;
-  box-shadow:
-    0 28px 64px rgba(0, 0, 0, 0.26),
-    0 6px 16px rgba(0, 0, 0, 0.16);
-  flex-shrink: 0;
-}
-
-.unified-phone-bezel {
-  width: 100%;
-  height: 100%;
-  border-radius: 47px;
-  background: #080808;
-  padding: 8px;
-}
-
-.unified-phone-screen {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 39px;
-  background-color: var(--phone-surface);
-  overflow: hidden;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background-color: var(--app-surface);
   display: flex;
   flex-direction: column;
-}
-
-/* iOS Status Bar */
-.ios-status-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 22px 8px;
-  height: 34px;
-  flex-shrink: 0;
-  z-index: 20;
-  background-color: var(--phone-surface);
-}
-
-.status-time {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: #FFFFFF;
-}
-
-.status-icons {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  position: relative;
 }
 
 /* ==========================================================================
@@ -124,19 +68,14 @@ button {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 6px 16px 22px;
-  overflow-y: auto;
-  scrollbar-width: none;
-}
-.login-view::-webkit-scrollbar {
-  display: none;
+  justify-content: center;
+  padding: 24px 16px 32px;
 }
 
 .login-brand-row {
   display: flex;
   align-items: center;
   gap: 11px;
-  margin-top: 4px;
   padding: 0 2px;
 }
 
@@ -173,10 +112,10 @@ button {
 .login-glass-preview {
   position: relative;
   width: 100%;
-  height: 118px;
-  border-radius: 22px;
+  height: 124px;
+  border-radius: 24px;
   overflow: hidden;
-  margin-top: 14px;
+  margin-top: 16px;
   background-color: var(--chrome-canvas);
   flex-shrink: 0;
 }
@@ -208,7 +147,7 @@ button {
 }
 
 .login-preview-title {
-  font-size: 23px;
+  font-size: 24px;
   font-weight: 500;
   color: #141414;
   letter-spacing: -0.02em;
@@ -222,12 +161,11 @@ button {
 
 /* Dark Login Card */
 .login-card {
-  margin-top: 12px;
-  flex: 1;
+  margin-top: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 16px;
+  padding: 18px 16px;
   border-radius: 24px;
   background-color: var(--card-black);
 }
@@ -236,7 +174,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .login-label-row {
@@ -275,7 +213,7 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 44px;
+  height: 46px;
   padding: 0 13px;
   border-radius: 14px;
   background-color: #141414;
@@ -295,7 +233,7 @@ button {
   outline: none;
   color: #FFFFFF;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 500;
   letter-spacing: 0.03em;
 }
@@ -320,17 +258,17 @@ button {
 .pin-keypad {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  margin: 4px 0 10px;
+  gap: 7px;
+  margin: 4px 0 14px;
 }
 
 .key-btn {
-  height: 36px;
-  border-radius: 11px;
+  height: 40px;
+  border-radius: 12px;
   background-color: #141414;
   border: 1px solid #222222;
   color: #F2F2F2;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -359,9 +297,9 @@ button {
   color: #FF8E8E;
   font-size: 11.5px;
   line-height: 1.35;
-  padding: 8px 11px;
-  border-radius: 11px;
-  margin-bottom: 10px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
   text-align: center;
 }
 
@@ -377,7 +315,7 @@ button {
 
 .login-submit-btn {
   width: 100%;
-  height: 46px;
+  height: 48px;
   border-radius: 999px;
   background-color: var(--lime-btn);
   color: #0A0A0A;
@@ -396,25 +334,13 @@ button {
 }
 
 /* ==========================================================================
-   VIEW 2: UNIFIED BANKING DASHBOARD
+   VIEW 2: UNIFIED BANKING DASHBOARD (NATIVE SCROLLABLE MOBILE PAGE)
    ========================================================================== */
 .dashboard-view {
   flex: 1;
-  position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-}
-
-.dashboard-scroll-area {
-  flex: 1;
-  overflow-y: auto;
-  padding: 4px 14px 92px;
-  scrollbar-width: none;
-}
-
-.dashboard-scroll-area::-webkit-scrollbar {
-  display: none;
+  padding: 18px 16px 100px;
 }
 
 /* User Profile Greeting Header */
@@ -422,12 +348,11 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 4px;
   padding: 0 2px;
 }
 
 .user-greeting h1 {
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 400;
   color: #FFFFFF;
   letter-spacing: -0.02em;
@@ -435,7 +360,7 @@ button {
 }
 
 .user-greeting p {
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 400;
   color: #787878;
   margin-top: 2px;
@@ -444,12 +369,12 @@ button {
 .user-actions {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
 
 .circle-icon-btn {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background-color: #0D0D0D;
   color: #E5E5E5;
@@ -465,8 +390,8 @@ button {
 }
 
 .avatar-wrap {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   overflow: hidden;
   background-color: #2A2A2A;
@@ -487,13 +412,12 @@ button {
   position: relative;
   width: 100%;
   aspect-ratio: 586 / 577;
-  margin-top: 14px;
+  margin-top: 16px;
   border-radius: 26px;
   overflow: hidden;
   background-color: var(--chrome-canvas);
   user-select: none;
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
 .chrome-plate-img {
@@ -531,14 +455,14 @@ button {
 
 .account-label,
 .account-id {
-  font-size: 13.5px;
+  font-size: clamp(13px, 3.6vw, 15px);
   font-weight: 400;
   color: #141414;
   letter-spacing: -0.015em;
 }
 
 .account-balance {
-  font-size: 31px;
+  font-size: clamp(28px, 8.2vw, 35px);
   font-weight: 400;
   color: #141414;
   letter-spacing: -0.02em;
@@ -547,7 +471,7 @@ button {
 }
 
 .account-status {
-  font-size: 13.5px;
+  font-size: clamp(13px, 3.6vw, 15px);
   font-weight: 400;
   color: #295238;
   letter-spacing: -0.01em;
@@ -580,8 +504,8 @@ button {
 }
 
 .glass-action-circle {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: #FFFFFF;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
@@ -591,14 +515,14 @@ button {
 }
 
 .dollar-glyph {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   color: #4D4D4D;
   line-height: 1;
 }
 
 .glass-action-label {
-  font-size: 11.5px;
+  font-size: clamp(11px, 3vw, 13px);
   font-weight: 400;
   color: #FFFFFF;
   letter-spacing: -0.01em;
@@ -704,23 +628,23 @@ button {
    PART 2: REGULAR BANKING PORTFOLIO OVERVIEW & ANALYTICS CARDS
    ========================================================================== */
 .screen-title {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 300;
   color: #F2F2F2;
   letter-spacing: -0.025em;
-  margin: 18px 2px 12px;
+  margin: 20px 2px 12px;
 }
 
 .dark-card {
   background-color: var(--card-black);
   border-radius: 24px;
-  padding: 16px;
+  padding: 18px 16px;
   position: relative;
 }
 
 /* Card 1: Total Income & Bar Chart */
 .income-card {
-  height: 252px;
+  height: 258px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -733,13 +657,13 @@ button {
 }
 
 .card-subtitle {
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 400;
   color: #9A9A9A;
 }
 
 .income-amount {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 400;
   color: #FFFFFF;
   letter-spacing: -0.03em;
@@ -759,7 +683,7 @@ button {
 
 .income-chart-area {
   position: relative;
-  height: 148px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -768,7 +692,7 @@ button {
 .chart-callout {
   position: absolute;
   top: 16px;
-  left: 34px;
+  left: 36px;
   display: flex;
   align-items: flex-start;
   z-index: 3;
@@ -795,10 +719,10 @@ button {
 }
 
 .callout-dotted-line {
-  width: 56px;
+  width: 62px;
   border-top: 1.5px dotted rgba(255, 255, 255, 0.48);
   margin-top: 9px;
-  margin-left: -14px;
+  margin-left: -12px;
 }
 
 .bars-container {
@@ -812,7 +736,7 @@ button {
 
 .chart-bar {
   width: 100%;
-  border-radius: 13px;
+  border-radius: 14px;
   padding: 6px 4px;
   display: flex;
   justify-content: center;
@@ -827,7 +751,7 @@ button {
 }
 
 .bar-1 {
-  height: 74px;
+  height: 76px;
   background: repeating-linear-gradient(
     -45deg,
     #1A1A1A,
@@ -838,12 +762,12 @@ button {
 }
 
 .bar-2 {
-  height: 55px;
+  height: 56px;
   background: #A0A0A0;
 }
 
 .bar-3 {
-  height: 136px;
+  height: 138px;
   background: repeating-linear-gradient(
     -45deg,
     #F5F5F5,
@@ -864,7 +788,7 @@ button {
 }
 
 .bar-4 {
-  height: 95px;
+  height: 96px;
   background: repeating-linear-gradient(
     -45deg,
     #464646,
@@ -879,9 +803,9 @@ button {
   align-items: center;
   justify-content: center;
   gap: 3px;
-  padding: 4px 7px;
+  padding: 4.5px 8px;
   border-radius: 999px;
-  font-size: 9px;
+  font-size: 9.5px;
   font-weight: 500;
   line-height: 1;
   white-space: nowrap;
@@ -895,11 +819,10 @@ button {
 .pill-dark {
   background-color: #0A0A0A;
   color: #FFFFFF;
-  padding: 4.5px 8px;
 }
 
 .pill-arrow {
-  font-size: 8.5px;
+  font-size: 9px;
   line-height: 1;
 }
 
@@ -908,7 +831,7 @@ button {
   margin-top: 12px;
   display: flex;
   flex-direction: column;
-  padding-bottom: 12px;
+  padding-bottom: 14px;
 }
 
 .card-header-row {
@@ -918,15 +841,15 @@ button {
 }
 
 .card-title {
-  font-size: 16px;
+  font-size: 16.5px;
   font-weight: 400;
   color: #FFFFFF;
   letter-spacing: -0.01em;
 }
 
 .lime-arrow-btn {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background-color: var(--lime-accent);
   display: flex;
@@ -943,15 +866,15 @@ button {
 .holdings-legend {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 8px;
+  gap: 16px;
+  margin-top: 10px;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
+  font-size: 11.5px;
   color: #EAEAEA;
 }
 
@@ -975,22 +898,22 @@ button {
 }
 
 .arc-gauge-wrap {
-  margin-top: 10px;
+  margin-top: 12px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 
 .arc-gauge-svg {
-  width: 220px;
-  height: 118px;
+  width: 230px;
+  height: 122px;
   overflow: visible;
 }
 
 /* Card 3: Asset Allocation */
 .allocation-card {
   margin-top: 12px;
-  padding: 16px 15px 14px;
+  padding: 18px 16px 16px;
 }
 
 .allocation-header {
@@ -1001,7 +924,7 @@ button {
 }
 
 .allocation-header .card-title {
-  font-size: 15.5px;
+  font-size: 16px;
   white-space: nowrap;
 }
 
@@ -1012,21 +935,21 @@ button {
 }
 
 .outlined-pill-btn {
-  height: 30px;
-  padding: 0 12px;
+  height: 32px;
+  padding: 0 13px;
   border-radius: 999px;
   border: 1px solid #4A4A4A;
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 400;
   color: #EDEDED;
 }
 
 .outlined-circle-btn {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 1px solid #4A4A4A;
   display: inline-flex;
@@ -1039,11 +962,11 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .allocation-total-val {
-  font-size: 27px;
+  font-size: 29px;
   font-weight: 400;
   color: #FFFFFF;
   letter-spacing: -0.02em;
@@ -1051,7 +974,7 @@ button {
 }
 
 .allocation-total-lbl {
-  font-size: 10.5px;
+  font-size: 11px;
   color: #7A7A7A;
   margin-top: 2px;
 }
@@ -1059,21 +982,21 @@ button {
 .allocation-mini-legend {
   display: grid;
   grid-template-columns: repeat(2, auto);
-  gap: 5px 12px;
+  gap: 5px 14px;
 }
 
 .mini-legend-item {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 8.5px;
+  font-size: 9px;
   color: #8E8E8E;
   white-space: nowrap;
 }
 
 .mini-dot {
-  width: 6.5px;
-  height: 6.5px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -1092,10 +1015,10 @@ button {
 }
 
 .allocation-matrix {
-  margin-top: 16px;
+  margin-top: 18px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
 .matrix-row {
@@ -1105,21 +1028,21 @@ button {
 }
 
 .matrix-row-label {
-  font-size: 10.5px;
+  font-size: 11px;
   color: #D4D4D4;
-  width: 62px;
+  width: 68px;
   flex-shrink: 0;
 }
 
 .matrix-bubbles {
   display: grid;
-  grid-template-columns: repeat(7, 26px);
-  gap: 6px;
+  grid-template-columns: repeat(7, 28px);
+  gap: 7px;
 }
 
 .bubble {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -1175,34 +1098,34 @@ button {
 }
 
 .matrix-row-spacer {
-  width: 62px;
+  width: 68px;
   flex-shrink: 0;
 }
 
 .matrix-days {
   display: grid;
-  grid-template-columns: repeat(7, 26px);
-  gap: 6px;
+  grid-template-columns: repeat(7, 28px);
+  gap: 7px;
   text-align: center;
-  font-size: 9px;
+  font-size: 9.5px;
   color: #7D7D7D;
 }
 
 /* Card 4: Today's Earnings */
 .earnings-card {
   margin-top: 12px;
-  padding: 15px 16px;
+  padding: 16px;
 }
 
 .earnings-value-row {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .earnings-big-num {
-  font-size: 31px;
+  font-size: 32px;
   font-weight: 400;
   color: #FFFFFF;
   letter-spacing: -0.025em;
@@ -1215,13 +1138,13 @@ button {
 }
 
 .earnings-pct {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 400;
   color: #FFFFFF;
 }
 
 .earnings-pct-lbl {
-  font-size: 7.5px;
+  font-size: 8px;
   color: #7C7C7C;
   margin-top: 1px;
 }
@@ -1229,7 +1152,7 @@ button {
 /* Card 5: Join Our Wealth Mastery Class */
 .mastery-card {
   margin-top: 12px;
-  padding: 16px 16px 24px;
+  padding: 18px 16px 26px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1266,33 +1189,36 @@ button {
 .discount-pill {
   background-color: #767676;
   color: #0D0D0D;
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 600;
-  padding: 2.5px 7px;
+  padding: 3px 8px;
   border-radius: 999px;
 }
 
 .discount-text {
-  font-size: 10.5px;
+  font-size: 11px;
   color: #CCCCCC;
 }
 
-/* Floating Bottom Navigation Bar */
+/* Fixed Floating Bottom Navigation Bar */
 .bottom-glass-nav {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 22px;
-  height: 54px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 16px;
+  width: calc(100% - 32px);
+  max-width: 398px;
+  height: 56px;
   border-radius: 999px;
-  background: rgba(34, 34, 34, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 4px;
+  background: rgba(34, 34, 34, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 10;
+  z-index: 50;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 .nav-pill-discover {
@@ -1304,7 +1230,7 @@ button {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 500;
 }
 
@@ -1312,22 +1238,9 @@ button {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background-color: rgba(52, 52, 52, 0.85);
+  background-color: rgba(52, 52, 52, 0.88);
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* iOS Home Indicator Bar */
-.ios-home-indicator {
-  position: absolute;
-  bottom: 7px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 104px;
-  height: 3.5px;
-  border-radius: 99px;
-  background-color: #FFFFFF;
-  z-index: 11;
 }
