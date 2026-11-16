@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loginError.hidden = true;
         loginView.hidden = true;
         dashboardView.hidden = false;
-        if (scrollArea) scrollArea.scrollTop = 0;
+        window.scrollTo({ top: 0, behavior: 'instant' });
       } else {
         loginError.hidden = false;
         loginForm.classList.remove('shake');
@@ -107,9 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (navProfileBtn) navProfileBtn.addEventListener('click', lockAccount);
 
   // Smooth scrolling inside unified dashboard
-  if (navTopBtn && scrollArea) {
+  if (navTopBtn) {
     navTopBtn.addEventListener('click', () => {
-      scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
