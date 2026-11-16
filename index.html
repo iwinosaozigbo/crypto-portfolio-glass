@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto Portfolio &amp; Glass Account UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Floating View Mode Switcher (subtle pill at top-right) -->
+  <nav class="floating-switcher" aria-label="View Switcher">
+    <button class="switch-btn active" data-view="all">All Views</button>
+    <button class="switch-btn" data-view="crypto">1. Crypto Portfolio</button>
+    <button class="switch-btn" data-view="glass">2. Account Value Card</button>
+  </nav>
+
+  <!-- =====================================================================
+       SECTION 1: NEON LIME CRYPTO PORTFOLIO DUAL-IPHONE SHOWCASE (IMAGE 1)
+       ===================================================================== -->
+  <section id="section-crypto" class="showcase-crypto">
+    <div class="phones-stage">
+      
+      <!-- ================= LEFT IPHONE: PORTFOLIO OVERVIEW ================= -->
+      <article class="iphone-frame" id="phone-overview" aria-label="Portfolio Overview Screen">
+        <div class="iphone-bezel">
+          <div class="iphone-screen">
+            
+            <!-- iOS Status Bar -->
+            <header class="ios-status-bar">
+              <span class="status-time">4:21</span>
+              <div class="status-icons">
+                <!-- Cellular Signal Bars -->
+                <svg class="icon-signal" width="16" height="11" viewBox="0 0 16 11" fill="none">
+                  <rect x="0.5" y="7" width="2.5" height="3.5" rx="0.8" fill="#FFFFFF"/>
+                  <rect x="4.5" y="5" width="2.5" height="5.5" rx="0.8" fill="#FFFFFF"/>
+                  <rect x="8.5" y="2.5" width="2.5" height="8" rx="0.8" fill="#FFFFFF"/>
+                  <rect x="12.5" y="0.5" width="2.5" height="10" rx="0.8" fill="#FFFFFF" fill-opacity="0.4"/>
+                </svg>
+                <!-- Wi-Fi -->
+                <svg class="icon-wifi" width="15" height="11" viewBox="0 0 15 11" fill="none">
+                  <path d="M7.5 10.5C8.32843 10.5 9 9.82843 9 9C9 8.17157 8.32843 7.5 7.5 7.5C6.67157 7.5 6 8.17157 6 9C6 9.82843 6.67157 10.5 7.5 10.5Z" fill="#FFFFFF"/>
+                  <path d="M4.2 6.6C5.1 5.7 6.25 5.2 7.5 5.2C8.75 5.2 9.9 5.7 10.8 6.6" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"/>
+                  <path d="M1.6 4.0C3.2 2.4 5.25 1.5 7.5 1.5C9.75 1.5 11.8 2.4 13.4 4.0" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+                <!-- Battery -->
+                <svg class="icon-battery" width="23" height="11" viewBox="0 0 23 11" fill="none">
+                  <rect x="0.5" y="0.5" width="19" height="10" rx="2.5" stroke="#FFFFFF" stroke-opacity="0.45"/>
+                  <rect x="2" y="2" width="14" height="7" rx="1.2" fill="#FFFFFF"/>
+                  <path d="M21 3.5V7.5C21.8 7.1 22.3 6.4 22.3 5.5C22.3 4.6 21.8 3.9 21 3.5Z" fill="#FFFFFF" fill-opacity="0.5"/>
+                </svg>
+              </div>
+            </header>
+
+            <!-- User Profile Row -->
+            <div class="user-header">
+              <div class="user-greeting">
+                <h1>Hi, John!</h1>
+                <p>20th June, 2025</p>
+              </div>
+              <div class="user-actions">
+                <button class="circle-icon-btn" title="Settings" aria-label="Settings">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  </svg>
+                </button>
+                <button class="circle-icon-btn" title="Notifications" aria-label="Notifications">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                  </svg>
+                </button>
+                <div class="avatar-wrap">
+                  <img src="assets/john-avatar.png" alt="John" class="user-avatar" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Screen Title -->
+            <h2 class="screen-title">Portfolio Overview</h2>
+
+            <!-- Card 1: Total Income & Bar Chart -->
+            <div class="dark-card income-card">
+              <div class="income-card-top">
+                <div>
+                  <div class="card-subtitle">Total Income</div>
+                  <div class="income-amount" id="total-income-display">$8,72K</div>
+                </div>
+                <button class="pill-badge-gray" id="period-toggle-btn">30 Days</button>
+              </div>
+
+              <!-- Bar Chart Area -->
+              <div class="income-chart-area">
+                <!-- +73% Floating Callout & Dotted Line -->
+                <div class="chart-callout">
+                  <div class="callout-text">
+                    <span class="callout-percent" id="callout-percent">+73%</span>
+                    <span class="callout-sub">better than last month</span>
+                  </div>
+                  <div class="callout-dotted-line"></div>
+                </div>
+
+                <!-- 4 Vertical Bars -->
+                <div class="bars-container">
+                  <!-- Bar 1 -->
+                  <div class="chart-bar bar-1" data-income="$7,20K" data-pct="+42%">
+                    <div class="bar-pill pill-light">
+                      <span class="pill-arrow">↗</span>
+                      <span>7.2K</span>
+                    </div>
+                  </div>
+                  <!-- Bar 2 -->
+                  <div class="chart-bar bar-2" data-income="$5,60K" data-pct="-14%">
+                    <div class="bar-pill pill-light">
+                      <span class="pill-arrow">↙</span>
+                      <span>5.6K</span>
+                    </div>
+                  </div>
+                  <!-- Bar 3 (Highlighted White Hatched) -->
+                  <div class="chart-bar bar-3 active-bar" data-income="$8,72K" data-pct="+73%">
+                    <span class="bar-connector-dot"></span>
+                    <div class="bar-pill pill-dark">
+                      <span class="pill-arrow">↗</span>
+                      <span>7.2K</span>
+                    </div>
+                  </div>
+                  <!-- Bar 4 -->
+                  <div class="chart-bar bar-4" data-income="$8,10K" data-pct="+61%">
+                    <div class="bar-pill pill-light">
+                      <span class="pill-arrow">↙</span>
+                      <span>8.1K</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Crypto Holdings Arc Gauge -->
+            <div class="dark-card holdings-preview-card">
+              <div class="card-header-row">
+                <h3 class="card-title">Crypto Holdings</h3>
+                <button class="lime-arrow-btn" id="focus-holdings-btn" aria-label="Open Crypto Holdings">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="8 7 17 7 17 16"></polyline>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Legend Row -->
+              <div class="holdings-legend">
+                <div class="legend-item">
+                  <span class="legend-dot dot-bitcoin"></span>
+                  <span>Bitcoin</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-dot dot-ethereum"></span>
+                  <span>Ethereum</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-dot dot-altcoins"></span>
+                  <span>Altcoins</span>
+                </div>
+              </div>
+
+              <!-- Semi-Circular 3-Segment Gauge -->
+              <div class="arc-gauge-wrap">
+                <svg class="arc-gauge-svg" viewBox="0 0 220 120" fill="none">
+                  <!-- Right Segment: Bitcoin (Dark Charcoal #262626) -->
+                  <path d="M 136 33 A 76 76 0 0 1 186 105" stroke="#262626" stroke-width="25" stroke-linecap="round" />
+                  <!-- Middle Segment: Ethereum (Medium Gray #5B5B5B) -->
+                  <path d="M 54 53 A 76 76 0 0 1 131 31" stroke="#5B5B5B" stroke-width="25" stroke-linecap="round" />
+                  <!-- Left Segment: Altcoins (Light Gray/White #DEDEDE) -->
+                  <path d="M 34 105 A 76 76 0 0 1 51 57" stroke="#DEDEDE" stroke-width="25" stroke-linecap="round" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Floating Bottom Navigation Bar -->
+            <nav class="bottom-glass-nav" aria-label="Primary Navigation">
+              <button class="nav-pill-discover active">
+                <!-- Binoculars Icon -->
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 10h4"/>
+                  <path d="M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3"/>
+                  <path d="M20 21a2 2 0 0 0 2-2v-3.851c0-1.39-2-2.962-2-4.829V8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2z"/>
+                  <path d="M 22 16 L 2 16"/>
+                  <path d="M4 21a2 2 0 0 1-2-2v-3.851c0-1.39 2-2.962 2-4.829V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2z"/>
+                  <path d="M9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3"/>
+                </svg>
+                <span>Dicover</span>
+              </button>
+              <button class="nav-circle-btn" aria-label="Analytics Route">
+                <!-- S-curve node path icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="6" cy="6" r="2.2"/>
+                  <circle cx="18" cy="18" r="2.2"/>
+                  <path d="M8.2 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6.8"/>
+                </svg>
+              </button>
+              <button class="nav-circle-btn" aria-label="User Profile">
+                <!-- User icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="4"/>
+                  <path d="M5 20c1.5-3.5 4.2-5 7-5s5.5 1.5 7 5"/>
+                </svg>
+              </button>
+            </nav>
+
+            <!-- iOS Home Indicator -->
+            <div class="ios-home-indicator"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ================= RIGHT IPHONE: CRYPTO HOLDINGS ================= -->
+      <article class="iphone-frame" id="phone-holdings" aria-label="Crypto Holdings Screen">
+        <div class="iphone-bezel">
+          <div class="iphone-screen">
+            
+            <!-- iOS Status Bar -->
+            <header class="ios-status-bar">
+              <span class="status-time">4:21</span>
+              <div class="status-icons">
+                <svg class="icon-signal" width="16" height="11" viewBox="0 0 16 11" fill="none">
+                  <rect x="0.5" y="7" width="2.5" height="3.5" rx="0.8" fill="#FFFFFF"/>
+                  <rect x="4.5" y="5" width="2.5" height="5.5" rx="0.8" fill="#FFFFFF"/>
+                  <rect x="8.5" y="2.5" width="2.5" height="8" rx="0.8" fill="#FFFFFF"/>
+                  <rect x="12.5" y="0.5" width="2.5" height="10" rx="0.8" fill="#FFFFFF" fill-opacity="0.4"/>
+                </svg>
+                <svg class="icon-wifi" width="15" height="11" viewBox="0 0 15 11" fill="none">
+                  <path d="M7.5 10.5C8.32843 10.5 9 9.82843 9 9C9 8.17157 8.32843 7.5 7.5 7.5C6.67157 7.5 6 8.17157 6 9C6 9.82843 6.67157 10.5 7.5 10.5Z" fill="#FFFFFF"/>
+                  <path d="M4.2 6.6C5.1 5.7 6.25 5.2 7.5 5.2C8.75 5.2 9.9 5.7 10.8 6.6" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"/>
+                  <path d="M1.6 4.0C3.2 2.4 5.25 1.5 7.5 1.5C9.75 1.5 11.8 2.4 13.4 4.0" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+                <svg class="icon-battery" width="23" height="11" viewBox="0 0 23 11" fill="none">
+                  <rect x="0.5" y="0.5" width="19" height="10" rx="2.5" stroke="#FFFFFF" stroke-opacity="0.45"/>
+                  <rect x="2" y="2" width="14" height="7" rx="1.2" fill="#FFFFFF"/>
+                  <path d="M21 3.5V7.5C21.8 7.1 22.3 6.4 22.3 5.5C22.3 4.6 21.8 3.9 21 3.5Z" fill="#FFFFFF" fill-opacity="0.5"/>
+                </svg>
+              </div>
+            </header>
+
+            <!-- Top Navigation Header -->
+            <div class="subscreen-nav">
+              <button class="back-chevron-btn" aria-label="Back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <span class="subscreen-title">Crypto Holdings</span>
+            </div>
+
+            <!-- Card 1: Asset Allocation -->
+            <div class="dark-card allocation-card">
+              <div class="allocation-header">
+                <h3 class="card-title">Asset Allocation</h3>
+                <div class="allocation-controls">
+                  <button class="outlined-pill-btn" id="cadence-btn">
+                    <span id="cadence-label">Weekly</span>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <button class="outlined-circle-btn" aria-label="More options">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                      <circle cx="5" cy="12" r="1.8"/>
+                      <circle cx="12" cy="12" r="1.8"/>
+                      <circle cx="19" cy="12" r="1.8"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Total & 2x2 Legend Row -->
+              <div class="allocation-summary-row">
+                <div class="allocation-total-block">
+                  <div class="allocation-total-val" id="allocation-total-val">$17.3K</div>
+                  <div class="allocation-total-lbl">Total</div>
+                </div>
+                <div class="allocation-mini-legend">
+                  <div class="mini-legend-item">
+                    <span class="mini-dot dot-olive"></span>
+                    <span>$1-$100</span>
+                  </div>
+                  <div class="mini-legend-item">
+                    <span class="mini-dot dot-midgray"></span>
+                    <span>&gt;$300</span>
+                  </div>
+                  <div class="mini-legend-item">
+                    <span class="mini-dot dot-white"></span>
+                    <span>$100-$300</span>
+                  </div>
+                  <div class="mini-legend-item">
+                    <span class="mini-dot dot-darkgray"></span>
+                    <span>No Expenses</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3x7 Dot Matrix Grid -->
+              <div class="allocation-matrix">
+                <!-- Row 1: Bitcoin -->
+                <div class="matrix-row">
+                  <span class="matrix-row-label">Bitcoin</span>
+                  <div class="matrix-bubbles">
+                    <button class="bubble b-dark-hatch" title="Bitcoin Mon: No Expenses"></button>
+                    <button class="bubble b-dark-hatch" title="Bitcoin Tue: No Expenses"></button>
+                    <button class="bubble b-mid-hatch" title="Bitcoin Wed: >$300"></button>
+                    <button class="bubble b-olive-solid" title="Bitcoin Thu: $1-$100"></button>
+                    <button class="bubble b-light-hatch" title="Bitcoin Fri: $100-$300"></button>
+                    <button class="bubble b-dark-hatch" title="Bitcoin Sat: No Expenses"></button>
+                    <button class="bubble b-olive-solid" title="Bitcoin Sun: $1-$100"></button>
+                  </div>
+                </div>
+                <!-- Row 2: Ethereum -->
+                <div class="matrix-row">
+                  <span class="matrix-row-label">Ethereum</span>
+                  <div class="matrix-bubbles">
+                    <button class="bubble b-dark-hatch" title="Ethereum Mon: No Expenses"></button>
+                    <button class="bubble b-olive-solid" title="Ethereum Tue: $1-$100"></button>
+                    <button class="bubble b-dark-hatch" title="Ethereum Wed: No Expenses"></button>
+                    <button class="bubble b-light-solid" title="Ethereum Thu: $100-$300"></button>
+                    <button class="bubble b-dark-hatch" title="Ethereum Fri: No Expenses"></button>
+                    <button class="bubble b-mid-hatch" title="Ethereum Sat: >$300"></button>
+                    <button class="bubble b-light-hatch" title="Ethereum Sun: $100-$300"></button>
+                  </div>
+                </div>
+                <!-- Row 3: Altcoins -->
+                <div class="matrix-row">
+                  <span class="matrix-row-label">Altcoins</span>
+                  <div class="matrix-bubbles">
+                    <button class="bubble b-light-hatch" title="Altcoins Mon: $100-$300"></button>
+                    <button class="bubble b-mid-hatch" title="Altcoins Tue: >$300"></button>
+                    <button class="bubble b-light-hatch" title="Altcoins Wed: $100-$300"></button>
+                    <button class="bubble b-mid-hatch" title="Altcoins Thu: >$300"></button>
+                    <button class="bubble b-dark-hatch" title="Altcoins Fri: No Expenses"></button>
+                    <button class="bubble b-olive-solid" title="Altcoins Sat: $1-$100"></button>
+                    <button class="bubble b-dark-hatch" title="Altcoins Sun: No Expenses"></button>
+                  </div>
+                </div>
+                <!-- Days Footer Row -->
+                <div class="matrix-days-row">
+                  <span class="matrix-row-spacer"></span>
+                  <div class="matrix-days">
+                    <span>M</span>
+                    <span>T</span>
+                    <span>W</span>
+                    <span>T</span>
+                    <span>F</span>
+                    <span>S</span>
+                    <span>S</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Today's Earnings -->
+            <div class="dark-card earnings-card">
+              <div class="card-header-row">
+                <h3 class="card-title">Today's Earnings</h3>
+                <button class="outlined-circle-btn arrow-up-right" aria-label="View Today's Earnings">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="8 7 17 7 17 16"></polyline>
+                  </svg>
+                </button>
+              </div>
+              <div class="earnings-value-row">
+                <span class="earnings-big-num">$532,921</span>
+                <div class="earnings-change">
+                  <span class="earnings-pct">+73%</span>
+                  <span class="earnings-pct-lbl">Percentage Change</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Join Our Crypto Mastery Class -->
+            <div class="dark-card mastery-card">
+              <!-- Topographic Contour Lines SVG Background -->
+              <svg class="mastery-topo-svg" viewBox="0 0 280 150" fill="none" preserveAspectRatio="none">
+                <g stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="0.9">
+                  <path d="M 110 155 C 145 125, 175 75, 225 42 C 250 25, 268 18, 285 15" />
+                  <path d="M 122 155 C 155 125, 184 78, 232 48 C 255 32, 270 26, 285 24" />
+                  <path d="M 134 155 C 165 126, 193 82, 238 55 C 258 42, 272 36, 285 35" />
+                  <path d="M 146 155 C 175 128, 202 86, 244 63 C 262 52, 274 48, 285 47" />
+                  <path d="M 158 155 C 185 130, 211 92, 250 72 C 266 63, 276 60, 285 60" />
+                  <path d="M 170 155 C 195 132, 220 98, 255 82 C 269 75, 278 73, 285 73" />
+                  <path d="M 182 155 C 205 135, 228 106, 260 92 C 272 87, 280 86, 285 86" />
+                  <path d="M 194 155 C 215 138, 236 114, 264 103 C 275 99, 281 98, 285 98" />
+                  <path d="M 206 155 C 225 141, 244 122, 268 114 C 277 111, 282 110, 285 110" />
+                  <path d="M 218 155 C 235 144, 252 130, 272 124 C 279 122, 283 121, 285 121" />
+                  <path d="M 15 148 C 45 132, 75 128, 105 148" />
+                  <path d="M 5 155 C 42 136, 78 132, 115 155" />
+                </g>
+              </svg>
+
+              <div class="card-header-row mastery-header">
+                <h3 class="card-title mastery-title">Join Our Crypto<br/>Mastery Class</h3>
+                <button class="outlined-circle-btn arrow-up-right" aria-label="Join Mastery Class">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="8 7 17 7 17 16"></polyline>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="mastery-discount-row">
+                <span class="discount-pill">15%</span>
+                <span class="discount-text">discount for members</span>
+              </div>
+            </div>
+
+            <!-- Floating Bottom Navigation Bar -->
+            <nav class="bottom-glass-nav" aria-label="Primary Navigation">
+              <button class="nav-pill-discover active">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 10h4"/>
+                  <path d="M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3"/>
+                  <path d="M20 21a2 2 0 0 0 2-2v-3.851c0-1.39-2-2.962-2-4.829V8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2z"/>
+                  <path d="M 22 16 L 2 16"/>
+                  <path d="M4 21a2 2 0 0 1-2-2v-3.851c0-1.39 2-2.962 2-4.829V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2z"/>
+                  <path d="M9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3"/>
+                </svg>
+                <span>Dicover</span>
+              </button>
+              <button class="nav-circle-btn" aria-label="Analytics Route">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="6" cy="6" r="2.2"/>
+                  <circle cx="18" cy="18" r="2.2"/>
+                  <path d="M8.2 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6.8"/>
+                </svg>
+              </button>
+              <button class="nav-circle-btn" aria-label="User Profile">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="4"/>
+                  <path d="M5 20c1.5-3.5 4.2-5 7-5s5.5 1.5 7 5"/>
+                </svg>
+              </button>
+            </nav>
+
+            <!-- iOS Home Indicator -->
+            <div class="ios-home-indicator"></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SECTION 2: 3D LIQUID CHROME & FROSTED GLASS ACCOUNT VALUE CARD (IMAGE 2)
+       ===================================================================== -->
+  <section id="section-glass" class="showcase-glass">
+    <div class="chrome-card-stage" id="chrome-card-stage">
+      <!-- Exact 586x577 Raytraced Chrome + Prismatic Glass Refraction Plate -->
+      <img
+        src="assets/chrome-glass-plate.jpg"
+        alt="3D Metallic Sculpture and Glass Refraction"
+        class="chrome-plate-img"
+        draggable="false"
+      />
+
+      <!-- Live Interactive DOM Overlay Positioned Exactly Over the Glass Card -->
+      <div class="glass-card-overlay">
+        <!-- Upper White Inner Card Content -->
+        <div class="glass-inner-white-content">
+          <div class="account-top-row">
+            <span class="account-label">Account Value</span>
+            <span class="account-id">ID: 8674</span>
+          </div>
+
+          <div class="account-balance" id="account-balance-val">$87.348,00</div>
+
+          <div class="account-status" id="account-status-lbl">Active</div>
+        </div>
+
+        <!-- Lower Frosted Glass Action Buttons -->
+        <div class="glass-actions-row">
+          <!-- Pay -->
+          <button class="glass-action-item" data-action="pay">
+            <span class="glass-action-circle">
+              <span class="dollar-glyph">$</span>
+            </span>
+            <span class="glass-action-label">Pay</span>
+          </button>
+
+          <!-- Add money -->
+          <button class="glass-action-item" data-action="add">
+            <span class="glass-action-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-linecap="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </span>
+            <span class="glass-action-label">Add money</span>
+          </button>
+
+          <!-- Transfer -->
+          <button class="glass-action-item" data-action="transfer">
+            <span class="glass-action-circle">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="8 7 17 7 17 16"></polyline>
+              </svg>
+            </span>
+            <span class="glass-action-label">Transfer</span>
+          </button>
+        </div>
+
+        <!-- Interactive Modal Sheet inside Glass Card (hidden by default for 1:1 fidelity) -->
+        <div class="glass-modal" id="glass-action-modal" hidden>
+          <div class="glass-modal-box">
+            <div class="glass-modal-header">
+              <h4 id="glass-modal-title">Add Money</h4>
+              <button class="glass-modal-close" id="glass-modal-close" aria-label="Close">&times;</button>
+            </div>
+            <p class="glass-modal-desc" id="glass-modal-desc">Enter amount in EUR/USD format to update Account ID: 8674</p>
+            <div class="glass-modal-input-wrap">
+              <span>$</span>
+              <input type="number" id="glass-amount-input" value="1250" min="1" step="50" />
+            </div>
+            <div class="glass-modal-footer">
+              <button class="glass-btn-secondary" id="glass-reset-btn">Reset to $87.348,00</button>
+              <button class="glass-btn-primary" id="glass-confirm-btn">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
