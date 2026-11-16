@@ -1,5 +1,6 @@
 /* ==========================================================================
-   PIXEL-PERFECT REPLICA: CRYPTO PORTFOLIO & 3D CHROME GLASS ACCOUNT CARD
+   UNIFIED PRIVATE BANKING SUITE:
+   LOGIN GATE -> 3D CHROME GLASS ACCOUNT CARD -> REGULAR BANKING PORTFOLIO
    ========================================================================== */
 
 *, *::before, *::after {
@@ -41,111 +42,52 @@ button {
   color: inherit;
 }
 
-/* ==========================================================================
-   FLOATING VIEW SWITCHER
-   ========================================================================== */
-.floating-switcher {
-  position: fixed;
-  top: 14px;
-  right: 16px;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px;
-  background: rgba(16, 16, 16, 0.78);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
-}
-
-.switch-btn {
-  padding: 6px 12px;
-  font-size: 11.5px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
-  border-radius: 999px;
-  transition: all 0.2s ease;
-}
-
-.switch-btn:hover {
-  color: #FFFFFF;
-}
-
-.switch-btn.active {
-  background: var(--lime-btn);
-  color: #0A0A0A;
-  font-weight: 600;
-}
-
-/* View Mode Visibility States */
-body[data-mode="crypto"] #section-glass {
-  display: none;
-}
-body[data-mode="glass"] #section-crypto {
-  display: none;
+[hidden] {
+  display: none !important;
 }
 
 /* ==========================================================================
-   SECTION 1: NEON LIME DUAL-IPHONE CRYPTO PORTFOLIO (IMAGE 1)
+   MAIN STAGE & UNIFIED PHONE SHELL
    ========================================================================== */
-.showcase-crypto {
+.banking-stage {
   width: 100%;
   min-height: 100vh;
   background-color: var(--lime-canvas);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 20px;
+  padding: 20px 16px;
 }
 
-.phones-stage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 96px;
-  max-width: 100%;
-}
-
-/* iPhone Hardware Bezel & Frame (Exact 311x674 proportion from reference) */
-.iphone-frame {
-  width: 311px;
-  height: 674px;
-  border-radius: 46px;
+.unified-phone-frame {
+  width: 382px;
+  height: 812px;
+  max-height: calc(100vh - 32px);
+  min-height: 690px;
+  border-radius: 50px;
   background: linear-gradient(145deg, #2d2d2d 0%, #171717 50%, #252525 100%);
-  padding: 3px;
+  padding: 3.5px;
   box-shadow:
-    0 24px 50px rgba(0, 0, 0, 0.22),
-    0 4px 12px rgba(0, 0, 0, 0.15);
+    0 28px 64px rgba(0, 0, 0, 0.26),
+    0 6px 16px rgba(0, 0, 0, 0.16);
   flex-shrink: 0;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
 }
 
-.iphone-frame.pulse-highlight {
-  transform: translateY(-4px) scale(1.012);
-  box-shadow:
-    0 30px 64px rgba(0, 0, 0, 0.36),
-    0 0 0 3px rgba(255, 255, 255, 0.5);
-}
-
-.iphone-bezel {
+.unified-phone-bezel {
   width: 100%;
   height: 100%;
-  border-radius: 43px;
+  border-radius: 47px;
   background: #080808;
-  padding: 7px;
+  padding: 8px;
 }
 
-.iphone-screen {
+.unified-phone-screen {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 36px;
+  border-radius: 39px;
   background-color: var(--phone-surface);
   overflow: hidden;
-  padding: 12px 14px 18px;
   display: flex;
   flex-direction: column;
 }
@@ -155,13 +97,15 @@ body[data-mode="glass"] #section-crypto {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2px 8px 10px;
-  height: 26px;
+  padding: 12px 22px 8px;
+  height: 34px;
   flex-shrink: 0;
+  z-index: 20;
+  background-color: var(--phone-surface);
 }
 
 .status-time {
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: #FFFFFF;
@@ -173,17 +117,317 @@ body[data-mode="glass"] #section-crypto {
   gap: 5px;
 }
 
-/* User Profile Greeting Header (Left Phone) */
+/* ==========================================================================
+   VIEW 1: LOGIN SCREEN (USERNAME: IWINOSA | PIN: 123456)
+   ========================================================================== */
+.login-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 6px 16px 22px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.login-view::-webkit-scrollbar {
+  display: none;
+}
+
+.login-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 4px;
+  padding: 0 2px;
+}
+
+.brand-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--lime-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 17px;
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+.brand-sub {
+  font-size: 11px;
+  color: #7D7D7D;
+  margin-top: 1px;
+}
+
+/* Glass & Chrome Login Teaser Banner */
+.login-glass-preview {
+  position: relative;
+  width: 100%;
+  height: 118px;
+  border-radius: 22px;
+  overflow: hidden;
+  margin-top: 14px;
+  background-color: var(--chrome-canvas);
+  flex-shrink: 0;
+}
+
+.login-preview-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+}
+
+.login-preview-overlay {
+  position: absolute;
+  inset: 12px 18px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+.login-preview-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.login-preview-title {
+  font-size: 23px;
+  font-weight: 500;
+  color: #141414;
+  letter-spacing: -0.02em;
+}
+
+.login-preview-status {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #295238;
+}
+
+/* Dark Login Card */
+.login-card {
+  margin-top: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 24px;
+  background-color: var(--card-black);
+}
+
+.login-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.login-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #9A9A9A;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.pin-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.pin-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #2C2C2C;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.pin-dots span.filled {
+  background-color: var(--lime-btn);
+  transform: scale(1.15);
+}
+
+.login-input-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 13px;
+  border-radius: 14px;
+  background-color: #141414;
+  border: 1px solid #282828;
+  transition: border-color 0.15s ease;
+}
+
+.login-input-box:focus-within {
+  border-color: var(--lime-btn);
+}
+
+.login-input-box input {
+  flex: 1;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.login-input-box input::placeholder {
+  color: #525252;
+  font-weight: 400;
+}
+
+.pin-vis-btn {
+  font-size: 11px;
+  font-weight: 500;
+  color: #9A9A9A;
+  padding: 4px 6px;
+}
+
+.pin-vis-btn:hover {
+  color: #FFFFFF;
+}
+
+/* Tactile Numeric Keypad */
+.pin-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin: 4px 0 10px;
+}
+
+.key-btn {
+  height: 36px;
+  border-radius: 11px;
+  background-color: #141414;
+  border: 1px solid #222222;
+  color: #F2F2F2;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.12s ease, transform 0.1s ease;
+}
+
+.key-btn:hover {
+  background-color: #222222;
+}
+
+.key-btn:active {
+  transform: scale(0.96);
+  background-color: var(--lime-btn);
+  color: #0A0A0A;
+}
+
+.key-util {
+  font-size: 11px;
+  color: #9A9A9A;
+}
+
+.login-error {
+  background: rgba(255, 70, 70, 0.14);
+  border: 1px solid rgba(255, 90, 90, 0.35);
+  color: #FF8E8E;
+  font-size: 11.5px;
+  line-height: 1.35;
+  padding: 8px 11px;
+  border-radius: 11px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.shake {
+  animation: shakeError 0.28s ease-in-out;
+}
+
+.login-submit-btn {
+  width: 100%;
+  height: 46px;
+  border-radius: 999px;
+  background-color: var(--lime-btn);
+  color: #0A0A0A;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.login-submit-btn:hover {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   VIEW 2: UNIFIED BANKING DASHBOARD
+   ========================================================================== */
+.dashboard-view {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dashboard-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 14px 92px;
+  scrollbar-width: none;
+}
+
+.dashboard-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+
+/* User Profile Greeting Header */
 .user-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 8px;
+  margin-top: 4px;
   padding: 0 2px;
 }
 
 .user-greeting h1 {
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 400;
   color: #FFFFFF;
   letter-spacing: -0.02em;
@@ -191,7 +435,7 @@ body[data-mode="glass"] #section-crypto {
 }
 
 .user-greeting p {
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 400;
   color: #787878;
   margin-top: 2px;
@@ -236,16 +480,237 @@ body[data-mode="glass"] #section-crypto {
   display: block;
 }
 
-/* Screen Main Title */
+/* ==========================================================================
+   HERO COMPONENT 1: 3D LIQUID CHROME & FROSTED GLASS ACCOUNT VALUE CARD
+   ========================================================================== */
+.chrome-card-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 586 / 577;
+  margin-top: 14px;
+  border-radius: 26px;
+  overflow: hidden;
+  background-color: var(--chrome-canvas);
+  user-select: none;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.chrome-plate-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.glass-card-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glass-inner-white-content {
+  position: absolute;
+  left: 8.02%;
+  top: 15.60%;
+  width: 76.79%;
+  height: 43.67%;
+  padding: 7.4% 8.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.account-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.account-label,
+.account-id {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: #141414;
+  letter-spacing: -0.015em;
+}
+
+.account-balance {
+  font-size: 31px;
+  font-weight: 400;
+  color: #141414;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-top: 4px;
+}
+
+.account-status {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: #295238;
+  letter-spacing: -0.01em;
+}
+
+.glass-actions-row {
+  position: absolute;
+  left: 8.02%;
+  top: 64.47%;
+  width: 76.79%;
+  height: 18.5%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 7.2%;
+  align-items: start;
+  justify-items: center;
+}
+
+.glass-action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass-action-item:hover {
+  transform: translateY(-2px);
+}
+
+.glass-action-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dollar-glyph {
+  font-size: 15px;
+  font-weight: 500;
+  color: #4D4D4D;
+  line-height: 1;
+}
+
+.glass-action-label {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+}
+
+/* Interactive Modal Inside Glass Card */
+.glass-modal {
+  position: absolute;
+  left: 8.02%;
+  top: 15.60%;
+  width: 76.79%;
+  height: 69.15%;
+  background: rgba(250, 250, 250, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
+
+.glass-modal-box {
+  width: 100%;
+  color: #141414;
+}
+
+.glass-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.glass-modal-header h4 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.glass-modal-close {
+  font-size: 22px;
+  line-height: 1;
+  color: #666666;
+}
+
+.glass-modal-desc {
+  font-size: 11px;
+  color: #555555;
+  margin-top: 4px;
+}
+
+.glass-modal-input-wrap {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1.5px solid #DCDCDC;
+  border-radius: 12px;
+  padding: 7px 12px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.glass-modal-input-wrap input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-family: inherit;
+  color: #141414;
+}
+
+.glass-modal-footer {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.glass-btn-secondary {
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #EAEAEA;
+  color: #222222;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.glass-btn-primary {
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: #141414;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   PART 2: REGULAR BANKING PORTFOLIO OVERVIEW & ANALYTICS CARDS
+   ========================================================================== */
 .screen-title {
   font-size: 24px;
   font-weight: 300;
   color: #F2F2F2;
   letter-spacing: -0.025em;
-  margin: 18px 2px 14px;
+  margin: 18px 2px 12px;
 }
 
-/* Shared Dark Rounded Card */
 .dark-card {
   background-color: var(--card-black);
   border-radius: 24px;
@@ -290,14 +755,8 @@ body[data-mode="glass"] #section-crypto {
   padding: 5px 12px;
   border-radius: 999px;
   margin-top: 2px;
-  transition: opacity 0.15s ease;
 }
 
-.pill-badge-gray:hover {
-  opacity: 0.88;
-}
-
-/* Bar Chart Section */
 .income-chart-area {
   position: relative;
   height: 148px;
@@ -306,11 +765,10 @@ body[data-mode="glass"] #section-crypto {
   justify-content: flex-end;
 }
 
-/* Floating +73% Callout & Dotted Connector */
 .chart-callout {
   position: absolute;
   top: 16px;
-  left: 22px;
+  left: 34px;
   display: flex;
   align-items: flex-start;
   z-index: 3;
@@ -337,17 +795,16 @@ body[data-mode="glass"] #section-crypto {
 }
 
 .callout-dotted-line {
-  width: 42px;
+  width: 56px;
   border-top: 1.5px dotted rgba(255, 255, 255, 0.48);
   margin-top: 9px;
-  margin-left: -16px;
+  margin-left: -14px;
 }
 
-/* 4 Vertical Bars Grid */
 .bars-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 7px;
+  gap: 8px;
   align-items: end;
   height: 100%;
   width: 100%;
@@ -362,14 +819,13 @@ body[data-mode="glass"] #section-crypto {
   align-items: flex-start;
   position: relative;
   cursor: pointer;
-  transition: transform 0.2s ease, filter 0.2s ease;
+  transition: filter 0.2s ease;
 }
 
 .chart-bar:hover {
   filter: brightness(1.08);
 }
 
-/* Bar 1: Short Dark Hatched */
 .bar-1 {
   height: 74px;
   background: repeating-linear-gradient(
@@ -381,13 +837,11 @@ body[data-mode="glass"] #section-crypto {
   );
 }
 
-/* Bar 2: Shorter Medium-Light Gray Solid */
 .bar-2 {
   height: 55px;
   background: #A0A0A0;
 }
 
-/* Bar 3: Tallest Bright White Hatched */
 .bar-3 {
   height: 136px;
   background: repeating-linear-gradient(
@@ -399,7 +853,6 @@ body[data-mode="glass"] #section-crypto {
   );
 }
 
-/* Small black dot on left edge of Bar 3 where dotted line connects */
 .bar-connector-dot {
   position: absolute;
   top: 13px;
@@ -410,7 +863,6 @@ body[data-mode="glass"] #section-crypto {
   background-color: #000000;
 }
 
-/* Bar 4: Medium-Tall Dark Gray Hatched */
 .bar-4 {
   height: 95px;
   background: repeating-linear-gradient(
@@ -422,7 +874,6 @@ body[data-mode="glass"] #section-crypto {
   );
 }
 
-/* Inner Pills inside Bars */
 .bar-pill {
   display: inline-flex;
   align-items: center;
@@ -452,13 +903,12 @@ body[data-mode="glass"] #section-crypto {
   line-height: 1;
 }
 
-/* Card 2: Crypto Holdings Preview (Bottom of Left Phone) */
+/* Card 2: Account Holdings Arc Gauge */
 .holdings-preview-card {
-  margin-top: 10px;
-  flex: 1;
+  margin-top: 12px;
   display: flex;
   flex-direction: column;
-  padding-bottom: 58px;
+  padding-bottom: 12px;
 }
 
 .card-header-row {
@@ -524,115 +974,22 @@ body[data-mode="glass"] #section-crypto {
   background-color: #DFDFDF;
 }
 
-/* Arc Gauge SVG Container */
 .arc-gauge-wrap {
-  margin-top: auto;
-  margin-bottom: -14px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 
 .arc-gauge-svg {
-  width: 215px;
-  height: 115px;
+  width: 220px;
+  height: 118px;
   overflow: visible;
 }
 
-/* Floating Bottom Navigation Bar (Shared by Both Phones) */
-.bottom-glass-nav {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 22px;
-  height: 54px;
-  border-radius: 999px;
-  background: rgba(34, 34, 34, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 10;
-}
-
-.nav-pill-discover {
-  height: 46px;
-  padding: 0 24px;
-  border-radius: 999px;
-  background-color: var(--lime-btn);
-  color: #0A0A0A;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  font-weight: 500;
-  transition: transform 0.15s ease;
-}
-
-.nav-pill-discover:hover {
-  transform: scale(1.02);
-}
-
-.nav-circle-btn {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background-color: rgba(52, 52, 52, 0.85);
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.15s ease;
-}
-
-.nav-circle-btn:hover {
-  background-color: rgba(75, 75, 75, 0.95);
-}
-
-/* iOS Home Indicator Bar */
-.ios-home-indicator {
-  position: absolute;
-  bottom: 7px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 3.5px;
-  border-radius: 99px;
-  background-color: #FFFFFF;
-  z-index: 11;
-}
-
-/* ==========================================================================
-   RIGHT IPHONE: CRYPTO HOLDINGS DETAIL SCREEN
-   ========================================================================== */
-.subscreen-nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 8px 0 14px;
-  padding: 0 2px;
-}
-
-.back-chevron-btn {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  color: #FFFFFF;
-}
-
-.subscreen-title {
-  font-size: 16px;
-  font-weight: 400;
-  color: #FFFFFF;
-  letter-spacing: -0.01em;
-}
-
-/* Card 1: Asset Allocation */
+/* Card 3: Asset Allocation */
 .allocation-card {
+  margin-top: 12px;
   padding: 16px 15px 14px;
 }
 
@@ -644,7 +1001,7 @@ body[data-mode="glass"] #section-crypto {
 }
 
 .allocation-header .card-title {
-  font-size: 15px;
+  font-size: 15.5px;
   white-space: nowrap;
 }
 
@@ -676,15 +1033,8 @@ body[data-mode="glass"] #section-crypto {
   align-items: center;
   justify-content: center;
   color: #EDEDED;
-  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-.outlined-circle-btn:hover {
-  border-color: #888888;
-  transform: scale(1.05);
-}
-
-/* Total $17.3K & 2x2 Mini Legend */
 .allocation-summary-row {
   display: flex;
   align-items: center;
@@ -716,7 +1066,7 @@ body[data-mode="glass"] #section-crypto {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 8px;
+  font-size: 8.5px;
   color: #8E8E8E;
   white-space: nowrap;
 }
@@ -741,7 +1091,6 @@ body[data-mode="glass"] #section-crypto {
   background-color: #2A2A2A;
 }
 
-/* 3x7 Bubble Heatmap Matrix */
 .allocation-matrix {
   margin-top: 16px;
   display: flex;
@@ -756,31 +1105,30 @@ body[data-mode="glass"] #section-crypto {
 }
 
 .matrix-row-label {
-  font-size: 10px;
+  font-size: 10.5px;
   color: #D4D4D4;
-  width: 48px;
+  width: 62px;
   flex-shrink: 0;
 }
 
 .matrix-bubbles {
   display: grid;
-  grid-template-columns: repeat(7, 24px);
-  gap: 4.5px;
+  grid-template-columns: repeat(7, 26px);
+  gap: 6px;
 }
 
 .bubble {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .bubble:hover {
-  transform: scale(1.14);
+  transform: scale(1.12);
   box-shadow: 0 0 0 1.5px var(--lime-btn);
 }
 
-/* Exact 5 Bubble Fill Styles from Reference Image */
 .b-dark-hatch {
   background: repeating-linear-gradient(
     -45deg,
@@ -827,22 +1175,22 @@ body[data-mode="glass"] #section-crypto {
 }
 
 .matrix-row-spacer {
-  width: 48px;
+  width: 62px;
   flex-shrink: 0;
 }
 
 .matrix-days {
   display: grid;
-  grid-template-columns: repeat(7, 24px);
-  gap: 4.5px;
+  grid-template-columns: repeat(7, 26px);
+  gap: 6px;
   text-align: center;
   font-size: 9px;
   color: #7D7D7D;
 }
 
-/* Card 2: Today's Earnings */
+/* Card 4: Today's Earnings */
 .earnings-card {
-  margin-top: 10px;
+  margin-top: 12px;
   padding: 15px 16px;
 }
 
@@ -878,15 +1226,13 @@ body[data-mode="glass"] #section-crypto {
   margin-top: 1px;
 }
 
-/* Card 3: Join Our Crypto Mastery Class */
+/* Card 5: Join Our Wealth Mastery Class */
 .mastery-card {
-  margin-top: 10px;
-  flex: 1;
-  padding: 15px 16px 56px;
+  margin-top: 12px;
+  padding: 16px 16px 24px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 }
 
 .mastery-topo-svg {
@@ -914,7 +1260,7 @@ body[data-mode="glass"] #section-crypto {
   display: flex;
   align-items: center;
   gap: 7px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .discount-pill {
@@ -931,249 +1277,57 @@ body[data-mode="glass"] #section-crypto {
   color: #CCCCCC;
 }
 
-/* ==========================================================================
-   SECTION 2: 3D LIQUID CHROME & FROSTED GLASS ACCOUNT VALUE CARD (IMAGE 2)
-   ========================================================================== */
-.showcase-glass {
-  width: 100%;
-  min-height: 100vh;
-  background-color: var(--chrome-canvas);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-
-.chrome-card-stage {
-  position: relative;
-  width: 586px;
-  max-width: 100%;
-  aspect-ratio: 586 / 577;
-  user-select: none;
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-}
-
-.chrome-plate-img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain;
-  pointer-events: none;
-}
-
-/* Live Interactive DOM Overlay Mapped to Exact 586x577 Reference Coordinates */
-.glass-card-overlay {
+/* Floating Bottom Navigation Bar */
+.bottom-glass-nav {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Top Inner White Card Text Content (x=47..497, y=90..342 in 586x577) */
-.glass-inner-white-content {
-  position: absolute;
-  left: 8.02%;
-  top: 15.60%;
-  width: 76.79%;
-  height: 43.67%;
-  padding: 7.4% 8.5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.account-top-row {
+  left: 16px;
+  right: 16px;
+  bottom: 22px;
+  height: 54px;
+  border-radius: 999px;
+  background: rgba(34, 34, 34, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1px;
+  z-index: 10;
 }
 
-.account-label,
-.account-id {
-  font-size: clamp(16px, 3.85vw, 22.5px);
-  font-weight: 400;
-  color: #141414;
-  letter-spacing: -0.015em;
-}
-
-.account-balance {
-  font-size: clamp(32px, 9.2vw, 54px);
-  font-weight: 400;
-  color: #141414;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  margin-top: 6px;
-}
-
-.account-status {
-  font-size: clamp(16px, 3.85vw, 22.5px);
-  font-weight: 400;
-  color: #295238;
-  letter-spacing: -0.01em;
-  margin-bottom: 2px;
-}
-
-/* Bottom Frosted Glass Action Buttons (centers at x=149, 272, 395; y=395 in 586x577) */
-.glass-actions-row {
-  position: absolute;
-  left: 8.02%;
-  top: 64.47%;
-  width: 76.79%;
-  height: 18.5%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 0 7.2%;
-  align-items: start;
-  justify-items: center;
-}
-
-.glass-action-item {
+.nav-pill-discover {
+  height: 46px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background-color: var(--lime-btn);
+  color: #0A0A0A;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 14px;
-  cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
-.glass-action-item:hover {
-  transform: translateY(-3px);
-}
-
-.glass-action-item:active {
-  transform: translateY(0) scale(0.96);
-}
-
-.glass-action-circle {
-  width: 42px;
-  height: 42px;
+.nav-circle-btn {
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background-color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  background-color: rgba(52, 52, 52, 0.85);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.dollar-glyph {
-  font-size: 23px;
-  font-weight: 500;
-  color: #4D4D4D;
-  line-height: 1;
-}
-
-.glass-action-label {
-  font-size: clamp(14px, 3.3vw, 19.5px);
-  font-weight: 400;
-  color: #FFFFFF;
-  letter-spacing: -0.01em;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.16);
-  white-space: nowrap;
-}
-
-/* Interactive Modal Inside Glass Card */
-.glass-modal {
+/* iOS Home Indicator Bar */
+.ios-home-indicator {
   position: absolute;
-  left: 8.02%;
-  top: 15.60%;
-  width: 76.79%;
-  height: 69.15%;
-  background: rgba(250, 250, 250, 0.94);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 36px;
-  padding: 28px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
-}
-
-.glass-modal[hidden] {
-  display: none !important;
-}
-
-.glass-modal-box {
-  width: 100%;
-  color: #141414;
-}
-
-.glass-modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.glass-modal-header h4 {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.glass-modal-close {
-  font-size: 26px;
-  line-height: 1;
-  color: #666666;
-}
-
-.glass-modal-desc {
-  font-size: 13px;
-  color: #555555;
-  margin-top: 6px;
-}
-
-.glass-modal-input-wrap {
-  margin-top: 18px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #FFFFFF;
-  border: 1.5px solid #DCDCDC;
-  border-radius: 16px;
-  padding: 10px 16px;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-.glass-modal-input-wrap input {
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 24px;
-  font-family: inherit;
-  color: #141414;
-}
-
-.glass-modal-footer {
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.glass-btn-secondary {
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: #EAEAEA;
-  color: #222222;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.glass-btn-primary {
-  padding: 10px 20px;
-  border-radius: 999px;
-  background: #141414;
-  color: #FFFFFF;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-/* Responsive Scaling */
-@media (max-width: 780px) {
-  .phones-stage {
-    flex-direction: column;
-    gap: 36px;
-  }
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 104px;
+  height: 3.5px;
+  border-radius: 99px;
+  background-color: #FFFFFF;
+  z-index: 11;
 }
