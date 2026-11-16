@@ -206,8 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function formatAccountBalance(cents) {
     const whole = Math.floor(Math.abs(cents) / 100);
     const dec = String(Math.abs(cents) % 100).padStart(2, '0');
-    const wholeFormatted = whole.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    return `$${wholeFormatted},${dec}`;
+    const wholeFormatted = whole.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return `$${wholeFormatted}.${dec}`;
   }
 
   document.querySelectorAll('.glass-action-item').forEach((btn) => {
