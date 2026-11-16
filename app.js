@@ -7,6 +7,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const VALID_USERNAME = 'IWINOSA';
   const VALID_PIN = '123456';
 
+  // Force Fullscreen on load and on first user interaction
+  function enterFullscreen() {
+    const el = document.documentElement;
+    if (
+      !document.fullscreenElement &&
+      !document.webkitFullscreenElement &&
+      !document.msFullscreenElement
+    ) {
+      const req =
+        el.requestFullscreen ||
+        el.webkitRequestFullscreen ||
+        el.msRequestFullscreen;
+      if (req) {
+        try {
+          const p = req.call(el);
+          if (p && typeof p.catch === 'function') p.catch(() => {});
+        } catch (_) {}
+      }
+    }
+    window.scrollTo(0, 1);
+  }
+
+  // Try immediately on open
+  enterFullscreen();
+
+  // Also trigger automatically on the very first touch/click/key anywhere
+  ['pointerdown', 'touchstart', 'click', 'keydown'].forEach((evt) => {
+    window.addEventListener(evt, enterFullscreen, { once: true, passive: true });
+  });
+
   const loginView = document.getElementById('login-view');
   const dashboardView = document.getElementById('dashboard-view');
   const loginForm = document.getElementById('login-form');
@@ -61,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Tactile PIN Keypad buttons
   document.querySelectorAll('.key-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
+      enterFullscreen();
       if (!pinInput) return;
       const key = btn.getAttribute('data-key');
       if (key === 'clear') {
@@ -78,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (loginForm) {
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      enterFullscreen();
       const enteredUser = (usernameInput?.value || '').trim().toUpperCase();
       const enteredPin = (pinInput?.value || '').trim();
 
